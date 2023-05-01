@@ -9,6 +9,14 @@ enum ConstForConvetr
     FT_TO_METERS,
     MILE_TO_METERS,
     YARD_TO_METERS,
-    INCH_TO_METERS
+    INCH_TO_METERS,
 
+    // Константы для времени
+    SEC_TO_MIN,
+    SEC_TO_HOUR,
+
+    HOUR_TO_SEC,
+    MIN_TO_SEC
+
+    
 };
