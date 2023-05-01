@@ -58,6 +58,26 @@ double convert_unit(double unit, int coefficient)
         case OUNCE_TO_KG:
             return unit / 35.274;
 
+        // Преобразование величин температуры
+        case KELVIN_TO_CELSIUS:
+            return unit - 273.15;
+
+        case CELSIUS_TO_KELVIN:
+            return unit + 273.15;
+
+        case CELSIUS_TO_FAHR:
+            return (unit * 9. / 5.) + 32;
+
+        case FAHR_TO_CELSIUS:
+            return (unit - 32) * 5. / 9.;
+
+        case KELVIN_TO_FAHR:
+            return (unit - 273.15) * 9. / 5. + 32;
+
+        case FAHR_TO_KELVIN:
+            return (unit - 32) * 5. / 9. + 273.15;
+
+
         default:
         {
             printf("Unknown unit of measurement\n");

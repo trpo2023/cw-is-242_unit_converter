@@ -1,4 +1,4 @@
-enum ConstForConvetr
+enum ConstForConvert
 {
     // Константы для превода расстояния
     METERS_TO_FT,
@@ -24,5 +24,15 @@ enum ConstForConvetr
     KG_TO_OUNCE,
 
     POUND_TO_KG,
-    OUNCE_TO_KG
+    OUNCE_TO_KG,
+
+    // Константы для температуры
+    KELVIN_TO_CELSIUS,
+    KELVIN_TO_FAHR,
+
+    CELSIUS_TO_KELVIN,
+    CELSIUS_TO_FAHR,
+
+    FAHR_TO_KELVIN,
+    FAHR_TO_CELSIUS
 };
