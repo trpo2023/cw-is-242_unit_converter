@@ -1,15 +1,15 @@
-OBJ = src/main.o
+OBJ = main.o converter.o
 
 OBJ_DIR = obj
 SRC_DIR = src
 
-all: main
+all: unit
 
-main: $(OBJ_DIR)/$(OBJ)
-    gcc -o unit $^
+unit: obj/converter.o obj/main.o
+	gcc -o $@ $^
 
-$(SRC_DIR)/%.o: src/%.c
-    gcc -Wall -o $@ $<
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	gcc -Wall -o $@ -c $<
 
-clean: $(OBJ_DIR)/$(OBJ)
-    rm unit $^
+clean: $(OBJ_DIR)/*.o
+	rm unit $^
