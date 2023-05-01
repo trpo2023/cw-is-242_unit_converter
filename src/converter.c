@@ -45,7 +45,18 @@ double convert_unit(double unit, int coefficient)
         case HOUR_TO_SEC:
             return unit * 3600;
 
-    
+        // Преобразование величин массы
+        case KG_TO_POUND:
+            return unit * 2.205;
+        
+        case POUND_TO_KG:
+            return unit / 2.205;
+
+        case KG_TO_OUNCE:
+            return unit * 35.274;
+
+        case OUNCE_TO_KG:
+            return unit / 35.274;
 
         default:
         {

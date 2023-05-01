@@ -16,7 +16,13 @@ enum ConstForConvetr
     SEC_TO_HOUR,
 
     HOUR_TO_SEC,
-    MIN_TO_SEC
+    MIN_TO_SEC,
 
-    
+    // Константы для массы
+
+    KG_TO_POUND,
+    KG_TO_OUNCE,
+
+    POUND_TO_KG,
+    OUNCE_TO_KG
 };
