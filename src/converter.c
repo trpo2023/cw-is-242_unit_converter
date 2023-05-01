@@ -57,10 +57,10 @@ double convert_unit(double unit, int coefficient)
 
     // Преобразование величин массы
     case KG_TO_POUND:
-        return unit * 2.205;
+        return unit * 2.2046;
 
     case POUND_TO_KG:
-        return unit / 2.205;
+        return unit / 2.2046;
 
     case KG_TO_OUNCE:
         return unit * 35.274;
@@ -100,35 +100,35 @@ double get_result(double unit, char *from_unit_measure, char *to_unit_measure)
     int flag = TRUE;
     int i;
 
-    for (i = 0; i < sizeof(MEASURE); i++)
-    {
-        if (strcmp(from_unit_measure, MEASURE[i]) != 0)
-        {
-            flag = FALSE;
-            break;
-        }
-    }
+    // for (i = 0; i < sizeof(MEASURE); i++)
+    // {
+    //     if (strcmp(from_unit_measure, MEASURE[i]) != 0)
+    //     {
+    //         flag = FALSE;
+    //         break;
+    //     }
+    // }
 
-    if (!flag)
-    {
-        printf("[%s] Unknown unit of measurement\n", from_unit_measure);
-        assert(flag);
-    }
+    // if (!flag)
+    // {
+    //     printf("[%s] Unknown unit of measurement\n", from_unit_measure);
+    //     assert(flag);
+    // }
 
-    for (i = 0, flag = TRUE; i < sizeof(MEASURE); i++)
-    {
-        if (strcmp(to_unit_measure, MEASURE[i]) != 0)
-        {
-            flag = FALSE;
-            break;
-        }
-    }
+    // for (i = 0, flag = TRUE; i < sizeof(MEASURE); i++)
+    // {
+    //     if (strcmp(to_unit_measure, MEASURE[i]) != 0)
+    //     {
+    //         flag = FALSE;
+    //         break;
+    //     }
+    // }
 
-    if (!flag)
-    {
-        printf("[%s] Unknown unit of measurement\n", to_unit_measure);
-        assert(flag);
-    }
+    // if (!flag)
+    // {
+    //     printf("[%s] Unknown unit of measurement\n", to_unit_measure);
+    //     assert(flag);
+    // }
 
 
     if (!strcmp(from_unit_measure, "metre") && !strcmp(to_unit_measure, "ft")) return convert_unit(unit, METERS_TO_FT);

@@ -21,7 +21,7 @@ double str_to_double(char *arr)
     }
     for (int j = 0; j < space_start; j++)
     {
-        if (arr[j] >= '0' && arr[j] <= '9')
+        if ((arr[j] >= '0' && arr[j] <= '9') || arr[j] == '.')
         {
             doub_char[j] = arr[j];
         }
@@ -53,6 +53,7 @@ char *str_in_name(char *arr)
     }
     return str_in;
 }
+
 char *str_out_name(char *arr)
 {
     int count = 0;
@@ -68,6 +69,7 @@ char *str_out_name(char *arr)
     }
     return str_out;
 }
+
 void error_check_inname(char *arr)
 {
     int start = 0;
@@ -111,7 +113,7 @@ void error_check_inname(char *arr)
     }
     for (int j = 0; j < space_start; j++)
     {
-        if (arr[j] >= '0' && arr[j] <= '9')
+        if ((arr[j] >= '0' && arr[j] <= '9') || arr[j] == '.')
         {
             continue;
         }
