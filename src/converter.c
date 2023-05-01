@@ -140,6 +140,11 @@ double get_result(double unit, char *from_unit_measure, char *to_unit_measure)
     if (!strcmp(from_unit_measure, "yard") && !strcmp(to_unit_measure, "metre")) return convert_unit(unit, YARD_TO_METERS);
     if (!strcmp(from_unit_measure, "inch") && !strcmp(to_unit_measure, "metre")) return convert_unit(unit, INCH_TO_METERS);
 
+    if (!strcmp(from_unit_measure, "sec") && !strcmp(to_unit_measure, "min")) return convert_unit(unit, SEC_TO_MIN);
+    if (!strcmp(from_unit_measure, "sec") && !strcmp(to_unit_measure, "hour")) return convert_unit(unit, SEC_TO_HOUR);
+    if (!strcmp(from_unit_measure, "hour") && !strcmp(to_unit_measure, "sec")) return convert_unit(unit, HOUR_TO_SEC);
+    if (!strcmp(from_unit_measure, "min") && !strcmp(to_unit_measure, "sec")) return convert_unit(unit, MIN_TO_SEC);
+
     
     
 
