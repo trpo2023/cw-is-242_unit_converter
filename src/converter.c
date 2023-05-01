@@ -150,5 +150,12 @@ double get_result(double unit, char *from_unit_measure, char *to_unit_measure)
     if (!strcmp(from_unit_measure, "pound") && !strcmp(to_unit_measure, "kg")) return convert_unit(unit, POUND_TO_KG);
     if (!strcmp(from_unit_measure, "ounce") && !strcmp(to_unit_measure, "kg")) return convert_unit(unit, OUNCE_TO_KG);
     
+    if (!strcmp(from_unit_measure, "kelvin") && !strcmp(to_unit_measure, "celsius")) return convert_unit(unit, KELVIN_TO_CELSIUS);
+    if (!strcmp(from_unit_measure, "kelvin") && !strcmp(to_unit_measure, "fahr")) return convert_unit(unit, KELVIN_TO_FAHR);
+    if (!strcmp(from_unit_measure, "celsius") && !strcmp(to_unit_measure, "kelvin")) return convert_unit(unit, CELSIUS_TO_KELVIN);
+    if (!strcmp(from_unit_measure, "celsius") && !strcmp(to_unit_measure, "fahr")) return convert_unit(unit, CELSIUS_TO_FAHR);
+    if (!strcmp(from_unit_measure, "fahr") && !strcmp(to_unit_measure, "kelvin")) return convert_unit(unit, FAHR_TO_KELVIN);
+    if (!strcmp(from_unit_measure, "fahr") && !strcmp(to_unit_measure, "celsius")) return convert_unit(unit, FAHR_TO_CELSIUS);
 
+    return 0;
 }
