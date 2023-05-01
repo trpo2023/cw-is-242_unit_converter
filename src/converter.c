@@ -145,7 +145,10 @@ double get_result(double unit, char *from_unit_measure, char *to_unit_measure)
     if (!strcmp(from_unit_measure, "hour") && !strcmp(to_unit_measure, "sec")) return convert_unit(unit, HOUR_TO_SEC);
     if (!strcmp(from_unit_measure, "min") && !strcmp(to_unit_measure, "sec")) return convert_unit(unit, MIN_TO_SEC);
 
-    
+    if (!strcmp(from_unit_measure, "kg") && !strcmp(to_unit_measure, "pound")) return convert_unit(unit, KG_TO_POUND);
+    if (!strcmp(from_unit_measure, "kg") && !strcmp(to_unit_measure, "ounce")) return convert_unit(unit, KG_TO_OUNCE);
+    if (!strcmp(from_unit_measure, "pound") && !strcmp(to_unit_measure, "kg")) return convert_unit(unit, POUND_TO_KG);
+    if (!strcmp(from_unit_measure, "ounce") && !strcmp(to_unit_measure, "kg")) return convert_unit(unit, OUNCE_TO_KG);
     
 
 }
