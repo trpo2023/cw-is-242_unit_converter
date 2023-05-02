@@ -19,11 +19,10 @@ int main()
 
 
     double unit = str_to_double(in_name);
-    printf("%lf\n", unit);
     char *from = str_in_name(in_name);
     char *to = str_out_name(out_name);
 
     unit = get_result(unit, from, to);
 
-    printf("%g\n", unit);
+    printf("%lf\n", unit);
 }

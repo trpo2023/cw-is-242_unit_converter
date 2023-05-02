@@ -8,10 +8,19 @@
 #define TRUE 1
 #define FALSE 0
 
-char *MEASURE[] = {"metre", "ft", "mile", "yard",
-                   "inch", "sec", "min", "hour",
-                   "kg", "pound", "ounce",
-                   "kelvin", "celsius", "fahr"};
+Map length[8] = {{"meters", 1.},
+				{"cantimeters", 0.01},
+				{"milimeters", 0.001},
+				{"kilometers", 1000.0},
+				{"feet", 0.3048},
+				{"inches", 0.254},
+				{"yards", 0.9144},
+				{"miles", 1609.34}};
+
+//char *MEASURE[] = {"metre", "ft", "mile", "yard",
+//                   "inch", "sec", "min", "hour",
+//                   "kg", "pound", "ounce",
+//                  "kelvin", "celsius", "fahr"};
 
 double convert_unit(double unit, int coefficient)
 {
@@ -97,8 +106,8 @@ double convert_unit(double unit, int coefficient)
 
 double get_result(double unit, char *from_unit_measure, char *to_unit_measure)
 {
-    int flag = TRUE;
-    int i;
+    // int flag = TRUE;
+    // int i;
 
     // for (i = 0; i < sizeof(MEASURE); i++)
     // {
