@@ -8,7 +8,7 @@
 #define TRUE 1
 #define FALSE 0
 
-Map length[]
+Dictionary length[]
         = {{"meters", 1.},
            {"cantimeters", 0.01},
            {"milimeters", 0.001},
