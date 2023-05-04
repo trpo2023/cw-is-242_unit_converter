@@ -8,7 +8,7 @@
 #define TRUE 1
 #define FALSE 0
 
-Map length[8]
+Dictionary length[]
         = {{"meters", 1.},
            {"cantimeters", 0.01},
            {"milimeters", 0.001},
@@ -17,11 +17,6 @@ Map length[8]
            {"inches", 0.254},
            {"yards", 0.9144},
            {"miles", 1609.34}};
-
-// char *MEASURE[] = {"metre", "ft", "mile", "yard",
-//                    "inch", "sec", "min", "hour",
-//                    "kg", "pound", "ounce",
-//                   "kelvin", "celsius", "fahr"};
 
 double convert_unit(double unit, int coefficient)
 {
