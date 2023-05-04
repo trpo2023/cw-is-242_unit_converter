@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "converter.h"
+
 double str_to_double(char* arr)
 {
     double doub_num;
@@ -102,4 +104,17 @@ void error_check_inname(char* arr)
             break;
         }
     }
+}
+
+void parser(char* from_unit_measure, char* to_unit_measure)
+{
+    Dictionary length[]
+        = {{"meters", 1.},
+           {"cantimeters", 0.01},
+           {"milimeters", 0.001},
+           {"kilometers", 1000.0},
+           {"feet", 0.3048},
+           {"inches", 0.254},
+           {"yards", 0.9144},
+           {"miles", 1609.34}};
 }
