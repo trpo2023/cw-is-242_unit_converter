@@ -15,13 +15,12 @@ int main()
     fgets(in_name, 100, stdin);
     printf("You want: ");
     fgets(out_name, 100, stdin);
-    error_check_inname(in_name);
+    if (error_check_inname(in_name) == 1) {
+        double unit = str_to_double(in_name);
+        char* from = str_in_name(in_name);
+        char* to = str_out_name(out_name);
 
-    double unit = str_to_double(in_name);
-    char* from = str_in_name(in_name);
-    char* to = str_out_name(out_name);
-
-    unit = get_result(unit, from, to);
-
-    printf("%lf\n", unit);
+        unit = get_result(unit, from, to);
+        printf("%lf\n", unit);
+    }
 }
