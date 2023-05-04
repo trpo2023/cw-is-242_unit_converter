@@ -1,11 +1,11 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <string.h>
 
-#include "parser.h"
-#include "converter.h"
 #include "constants.h"
+#include "converter.h"
+#include "parser.h"
 
 int main()
 {
@@ -17,10 +17,9 @@ int main()
     fgets(out_name, 100, stdin);
     error_check_inname(in_name);
 
-
     double unit = str_to_double(in_name);
-    char *from = str_in_name(in_name);
-    char *to = str_out_name(out_name);
+    char* from = str_in_name(in_name);
+    char* to = str_out_name(out_name);
 
     unit = get_result(unit, from, to);
 
