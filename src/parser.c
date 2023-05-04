@@ -9,20 +9,29 @@ double str_to_double(char* arr)
 {
     double doub_num;
     char doub_char[30];
-    int start = 0;
     int space_start;
     int length = strlen(arr);
     int ending_symbol = length;
+    int start_num_index = 0;
     arr[length] = '\0';
+    for (int i = 0; i < length; i++) {
+        if (arr[i] >= '0' && arr[i] <= '9') {
+            start_num_index = i;
+            break;
+        }
+    }
+    int start = start_num_index;
     for (; start < ending_symbol; start++) {
         if (arr[start] == ' ') {
             space_start = start;
             break;
         }
     }
-    for (int j = 0; j < space_start; j++) {
+    int count = 0;
+    for (int j = start_num_index; j < space_start; j++) {
         if ((arr[j] >= '0' && arr[j] <= '9') || arr[j] == '.') {
-            doub_char[j] = arr[j];
+            doub_char[count] = arr[j];
+            count++;
         }
     }
     doub_num = atof(doub_char);
@@ -64,7 +73,7 @@ char* str_out_name(char* arr)
     return str_out;
 }
 
-void error_check_inname(char* arr)
+int error_check_inname(char* arr)
 {
     int start = 0;
     int ending_symbol;
@@ -93,7 +102,20 @@ void error_check_inname(char* arr)
             continue;
         } else {
             printf("invalid string input\n");
-            break;
+            return 0;
+        }
+    }
+    int count = 0;
+    for (int j = 0; j < space_start; j++) {
+        if (arr[j] == '.') {
+            count++;
+        }
+        if (count <= 1) {
+            continue;
+        } else {
+            printf("use a single character '.' to store a floating point "
+                   "number\n");
+            return 0;
         }
     }
     for (int j = 0; j < space_start; j++) {
@@ -101,11 +123,11 @@ void error_check_inname(char* arr)
             continue;
         } else {
             printf("invalid number input\n");
-            break;
+            return 0;
         }
     }
+    return 1;
 }
-
 void parser(char* from_unit_measure, char* to_unit_measure)
 {
     Dictionary length[]
