@@ -106,7 +106,7 @@ int error_check_inname(char* arr)
         }
     }
     int count = 0;
-    for (int j = 0; j < space_start; j++) {
+    for (int j = 0; j < space_end; j++) {
         if (arr[j] == '.') {
             count++;
         }
