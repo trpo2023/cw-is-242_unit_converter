@@ -1,5 +1,4 @@
-enum ConstForConvert
-{
+enum ConstForConvert {
     // Константы для превода расстояния
     METERS_TO_FT,
     METERS_TO_MILE,
