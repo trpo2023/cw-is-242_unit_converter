@@ -128,6 +128,7 @@ int error_check_inname(char* arr)
     }
     return 1;
 }
+
 void parser(char* from_unit_measure, char* to_unit_measure)
 {
     Dictionary length[]
@@ -140,3 +141,4 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"yards", 0.9144},
                {"miles", 1609.34}};
 }
+
