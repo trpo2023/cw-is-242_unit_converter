@@ -157,5 +157,7 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"miliseconds", 0.001},
                {"microseconds", 0.000001},
                {"nanoseconds", 0.000000001}};
+
+    Dictionary temperature[] = {{"kelvin", 1.}, {"celsius", -273.15}};
 }
 
