@@ -140,5 +140,22 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"inches", 0.254},
                {"yards", 0.9144},
                {"miles", 1609.34}};
+
+    Dictionary mass[]
+            = {{"kilogram", 1.},
+               {"pound", 0.453592909},
+               {"gram", 0.001},
+               {"miligram", 0.000001},
+               {"ton", 1000.},
+               {"ounce", 0.028349493}};
+
+    Dictionary time[]
+            = {{"seconds", 1.},
+               {"minutes", 60.},
+               {"hour", 3600.},
+               {"day", 86400},
+               {"miliseconds", 0.001},
+               {"microseconds", 0.000001},
+               {"nanoseconds", 0.000000001}};
 }
 
