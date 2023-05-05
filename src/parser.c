@@ -166,4 +166,15 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"bar", 0.00001},
                {"atmospheres", 0.000009869},
                {"torr", 0.007500638}};
-}
+
+    Dictionary energy[]
+            = { {"joule", 1.},
+                {"kilojoule", 1000.},
+                {"gram-calorie", 0.239005736},
+                {"kilocalorie", 0.000239005},
+                {"watt-hour", 0.000277778},
+                {"kilowatt-hour", 2.77778e-7},
+                {"electron-volt", 1.6022e-19} }
+
+    Dictionary volume[]
+            = { {} }
