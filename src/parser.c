@@ -170,11 +170,11 @@ void parser(char* from_unit_measure, char* to_unit_measure)
     Dictionary energy[]
             = {{"joule", 1.},
                {"kilojoule", 1000.},
-               {"gram-calorie", 0.239005736},
+               {"gram/calorie", 0.239005736},
                {"kilocalorie", 0.000239005},
-               {"watt-hour", 0.000277778},
-               {"kilowatt-hour", 2.77778e-7},
-               {"electron-volt", 1.6022e-19}};
+               {"watt/hour", 0.000277778},
+               {"kilowatt/hour", 2.77778e-7},
+               {"electron/volt", 1.6022e-19}};
 
     Dictionary volume[] = {{0}};
 
