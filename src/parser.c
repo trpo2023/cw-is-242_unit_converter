@@ -187,7 +187,7 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"mm^3", 1e+9},
                {"km^3", 1e-9},
                {"inches^3", 61023.7},
-               {"feet^3"}, 35.3147};
+               {"feet^3", 35.3147}};
 
     Dictionary area[]
             = {{"m^2", 1.},
