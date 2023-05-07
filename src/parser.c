@@ -179,7 +179,15 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"kilowatt/hour", 2.77778e-7},
                {"electron/volt", 1.6022e-19}};
 
-    Dictionary volume[] = {{0}};
+    Dictionary volume[]
+            = {{"m^3", 1.},
+               {"dm^3", 1e+3},
+               {"cm^3", 1e+6},
+               {"liter", 1e+3},
+               {"mm^3", 1e+9},
+               {"km^3", 1e-9},
+               {"inches^3", 61023.7},
+               {"feet^3"}, 35.3147};
 
     Dictionary area[]
             = {{"m^2", 1.},
