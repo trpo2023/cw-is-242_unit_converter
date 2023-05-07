@@ -187,4 +187,11 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"inces^2", 0.00064516},
                {"hectare", 1e-4},
                {"arc", 0.000247105}};
+
+    Dictionary velocity[]
+            = {{"meter/second", 1.},
+               {"kilometer/hour", 0.277778},
+               {"mile/hour", 0.44704},
+               {"feet/second", 0.3048},
+               {"knot", 0.514444}};
 }
