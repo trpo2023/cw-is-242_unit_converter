@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 #include "converter.h"
 
 double str_to_double(char* arr)
@@ -153,7 +156,7 @@ void parser(char* from_unit_measure, char* to_unit_measure)
             = {{"seconds", 1.},
                {"minutes", 60.},
                {"hour", 3600.},
-               {"day", 86400},
+               {"day", 86400.},
                {"miliseconds", 0.001},
                {"microseconds", 0.000001},
                {"nanoseconds", 0.000000001}};
@@ -194,4 +197,10 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"mile/hour", 0.44704},
                {"feet/second", 0.3048},
                {"knot", 0.514444}};
+
+    Dictionary angle[]
+            = {{"degree", 1.},
+               {"radian", M_PI / 180.},
+               {"minutes-of-angle", 60.},
+               {"seconds-of-angle", 60. * 60.}};
 }
