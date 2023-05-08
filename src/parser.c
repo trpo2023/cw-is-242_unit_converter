@@ -211,4 +211,10 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"radian", M_PI / 180.},
                {"minutes-of-angle", 60.},
                {"seconds-of-angle", 60. * 60.}};
+
+    Dictionary frequency[]
+            = {{"hertz", 1.},
+               {"kilohertz", 1000.},
+               {"megahertz", 1e+6},
+               {"gigahertz", 1e+9}};
 }
