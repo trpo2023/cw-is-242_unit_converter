@@ -144,7 +144,6 @@ int convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
                {"yards", 0.9144},
                {"miles", 1609.34}};
 
-
     Dictionary mass[]
             = {{"kilogram", 1.},
                {"pound", 0.453592909},
