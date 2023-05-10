@@ -132,7 +132,7 @@ int error_check_inname(char* arr)
     return 1;
 }
 
-void parser(char* from_unit_measure, char* to_unit_measure)
+int convert(char* from_unit_measure,double inp_value, char* to_unit_measure)
 {
     Dictionary length[]
             = {{"meters", 1.},
@@ -143,6 +143,7 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"inches", 0.254},
                {"yards", 0.9144},
                {"miles", 1609.34}};
+
 
     Dictionary mass[]
             = {{"kilogram", 1.},
@@ -217,4 +218,25 @@ void parser(char* from_unit_measure, char* to_unit_measure)
                {"kilohertz", 1000.},
                {"megahertz", 1e+6},
                {"gigahertz", 1e+9}};
+
+    int from_index = -1;
+    for (int i = 0; i < 9; i++){
+        if (strcmp(from_unit_measure,length[i].key) == 0) {
+            from_index = i;
+            break;
+        }
+    }
+
+    int to_index = -1;
+    for (int i = 0; i < 9; i++){
+        if (strcmp(to_unit_measure,length[i].key) == 0) {
+            to_index = i;
+            break;
+        }
+    }
+
+    double value_in_meters = inp_value * length[from_index].value;
+    double converted_value = value_in_meters / length[to_index].value;
+
+    return converted_value;
 }
