@@ -128,7 +128,7 @@ int error_check_inname(char* arr)
     }
     return 1;
 }
-int convert(char* from_unit_measure,double inp_value, char* to_unit_measure)
+int convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
 {
     Dictionary length[]
             = {{"meters", 1.},
@@ -141,16 +141,16 @@ int convert(char* from_unit_measure,double inp_value, char* to_unit_measure)
                {"miles", 1609.34}};
 
     int from_index = -1;
-    for (int i = 0; i < 9; i++){
-        if (strcmp(from_unit_measure,length[i].key) == 0) {
+    for (int i = 0; i < 9; i++) {
+        if (strcmp(from_unit_measure, length[i].key) == 0) {
             from_index = i;
             break;
         }
     }
 
     int to_index = -1;
-    for (int i = 0; i < 9; i++){
-        if (strcmp(to_unit_measure,length[i].key) == 0) {
+    for (int i = 0; i < 9; i++) {
+        if (strcmp(to_unit_measure, length[i].key) == 0) {
             to_index = i;
             break;
         }
