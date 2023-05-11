@@ -52,6 +52,15 @@ char* str_in_name(char* arr)
             space_end = start;
         }
     }
+    for (int i = space_end; i > 0; i--) {
+        arr[i] = tolower(arr[i]);
+        if (arr[i] >= 'a' && arr[i] <= 'z') {
+            if (arr[i - 1] == ' ') {
+                space_end = i - 1;
+                break;
+            }
+        }
+    }
     for (int z = (space_end + 1); z < (length - 1); z++) {
         arr[z] = tolower(arr[z]);
         if (arr[z] >= 97 && arr[z] <= 122) {
@@ -126,6 +135,19 @@ int error_check_inname(char* arr)
             continue;
         } else {
             printf("invalid number input\n");
+            return 0;
+        }
+    }
+    return 1;
+}
+int error_check_outname(char* arr)
+{
+    for (int i = 0; i < (strlen(arr) - 1); i++) {
+        arr[i] = tolower(arr[i]);
+        if (arr[i] >= 'a' && arr[i] <= 'z') {
+            continue;
+        } else {
+            printf("invalid string output\n");
             return 0;
         }
     }
