@@ -1,16 +1,17 @@
 OBJ = main.o converter.o parser.o
 
+APP = unit
 BIN_DIR = bin
 OBJ_DIR = obj
 SRC_DIR = src
 
-all: $(BIN_DIR)/unit
+all: $(BIN_DIR)/$(APP)
 
-$(BIN_DIR)/unit: obj/converter.o obj/main.o obj/parser.o
+$(BIN_DIR)/$(APP): $(OBJ_DIR)/converter.o $(OBJ_DIR)/main.o $(OBJ_DIR)/parser.o
 	gcc -o $@ $^
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	gcc -Wall -o $@ -c $<
 
 clean: 
-	rm $(BIN_DIR/)unit $(OBJ_DIR)/converter.o $(OBJ_DIR)/main.o $(OBJ_DIR)/parser.o
+	rm $(BIN_DIR)/$(APP) $(OBJ_DIR)/converter.o $(OBJ_DIR)/main.o $(OBJ_DIR)/parser.o
