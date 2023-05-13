@@ -1,3 +1,4 @@
+#pragma once
 enum ConstForConvert {
     // Константы для превода расстояния
     METERS_TO_FT,
