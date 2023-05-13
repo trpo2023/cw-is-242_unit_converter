@@ -1,6 +1,6 @@
 #include <assert.h>
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
 
@@ -219,5 +219,7 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
                angle,
                frequency};
     
+    printf("%ld\n", sizeof(tab));
 
+    return -1;
 }
