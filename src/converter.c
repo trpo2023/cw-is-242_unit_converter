@@ -10,6 +10,46 @@
 #define TRUE 1
 #define FALSE 0
 
+Listnode *list_createnode(char *key, double value)
+{
+    Listnode *p;
+
+    p = malloc(sizeof(*p));
+
+    if (p != NULL) 
+    {
+        p->key = key;
+        p->value = value;
+        p->next = NULL;
+    }
+    return p;
+}
+
+Listnode *list_pushfront(Listnode *list, char *key, double value)
+{
+    Listnode *newnode;
+    newnode = list_createnode(key, value);
+
+    if (newnode != NULL) 
+    {
+        newnode->next = list;
+        return newnode;
+    }
+
+    return list;
+}
+
+void list_delete(Listnode *list)
+{
+    Listnode *prev;
+
+    for (prev = list; prev != NULL; prev = list)
+    {
+        list = list->next;
+        free(prev);
+    }
+}
+
 int convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
 {
     Dictionary length[]
