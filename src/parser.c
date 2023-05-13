@@ -108,15 +108,15 @@ int error_check_inname(char* arr)
             space_end = start;
         }
     }
-    for (int z = (space_end + 1); z < (ending_symbol - 1); z++) {
-        arr[z] = tolower(arr[z]);
-        if (arr[z] >= 97 && arr[z] <= 122) {
-            continue;
-        } else {
-            printf("invalid string input\n");
-            return 0;
-        }
-    }
+    // for (int z = (space_end + 1); z < (ending_symbol - 1); z++) {
+    //     arr[z] = tolower(arr[z]);
+    //     if (arr[z] >= 97 && arr[z] <= 122) {
+    //         continue;
+    //     } else {
+    //         printf("invalid string input\n");
+    //         return 0;
+    //     }
+    // }
     int count = 0;
     for (int j = 0; j < space_end; j++) {
         if (arr[j] == '.') {
@@ -130,11 +130,21 @@ int error_check_inname(char* arr)
             return 0;
         }
     }
+
     for (int j = 0; j < space_start; j++) {
         if ((arr[j] >= '0' && arr[j] <= '9') || arr[j] == '.') {
             continue;
         } else {
             printf("invalid number input\n");
+            return 0;
+        }
+    }
+    for (int z = (space_end + 1); z < (ending_symbol - 1); z++) {
+        arr[z] = tolower(arr[z]);
+        if (arr[z] >= 97 && arr[z] <= 122) {
+            continue;
+        } else {
+            printf("invalid string input\n");
             return 0;
         }
     }
