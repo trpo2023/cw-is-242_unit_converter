@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <string.h>
 
 #include "constants.h"
 #include "converter.h"
@@ -135,24 +136,24 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
 
     Listnode* length
             = list_createnode(dict_length[0].key, dict_length[0].value);
-    for (int i = 0; i < sizeof(dict_length) / sizeof(dict_length[0]); i++) {
+    for (int i = 1; i < sizeof(dict_length) / sizeof(dict_length[0]); i++) {
         length = list_pushfront(
                 length, dict_length[i].key, dict_length[i].value);
     }
 
     Listnode* mass = list_createnode(dict_mass[0].key, dict_mass[0].value);
-    for (int i = 0; i < sizeof(dict_mass) / sizeof(dict_mass[0]); i++) {
+    for (int i = 1; i < sizeof(dict_mass) / sizeof(dict_mass[0]); i++) {
         mass = list_pushfront(mass, dict_mass[i].key, dict_mass[i].value);
     }
 
     Listnode* time = list_createnode(dict_time[0].key, dict_time[0].value);
-    for (int i = 0; i < sizeof(dict_time) / sizeof(dict_time[0]); i++) {
+    for (int i = 1; i < sizeof(dict_time) / sizeof(dict_time[0]); i++) {
         time = list_pushfront(time, dict_time[i].key, dict_time[i].value);
     }
 
     Listnode* temperature = list_createnode(
             dict_temperature[0].key, dict_temperature[0].value);
-    for (int i = 0; i < sizeof(dict_temperature) / sizeof(dict_temperature[0]);
+    for (int i = 1; i < sizeof(dict_temperature) / sizeof(dict_temperature[0]);
          i++) {
         temperature = list_pushfront(
                 temperature,
@@ -162,45 +163,45 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
 
     Listnode* pressure
             = list_createnode(dict_pressure[0].key, dict_pressure[0].value);
-    for (int i = 0; i < sizeof(dict_pressure) / sizeof(dict_pressure[0]); i++) {
+    for (int i = 1; i < sizeof(dict_pressure) / sizeof(dict_pressure[0]); i++) {
         pressure = list_pushfront(
                 pressure, dict_pressure[i].key, dict_pressure[i].value);
     }
 
     Listnode* energy
             = list_createnode(dict_energy[0].key, dict_energy[0].value);
-    for (int i = 0; i < sizeof(dict_energy) / sizeof(dict_energy[0]); i++) {
+    for (int i = 1; i < sizeof(dict_energy) / sizeof(dict_energy[0]); i++) {
         energy = list_pushfront(
                 energy, dict_energy[i].key, dict_energy[i].value);
     }
 
     Listnode* volume
             = list_createnode(dict_volume[0].key, dict_volume[0].value);
-    for (int i = 0; i < sizeof(dict_volume) / sizeof(dict_volume[0]); i++) {
+    for (int i = 1; i < sizeof(dict_volume) / sizeof(dict_volume[0]); i++) {
         volume = list_pushfront(
                 volume, dict_volume[i].key, dict_volume[i].value);
     }
 
     Listnode* area = list_createnode(dict_area[0].key, dict_area[0].value);
-    for (int i = 0; i < sizeof(dict_area) / sizeof(dict_area[0]); i++) {
+    for (int i = 1; i < sizeof(dict_area) / sizeof(dict_area[0]); i++) {
         area = list_pushfront(area, dict_area[i].key, dict_area[i].value);
     }
 
     Listnode* velocity
             = list_createnode(dict_velocity[0].key, dict_velocity[0].value);
-    for (int i = 0; i < sizeof(dict_velocity) / sizeof(dict_velocity[0]); i++) {
+    for (int i = 1; i < sizeof(dict_velocity) / sizeof(dict_velocity[0]); i++) {
         velocity = list_pushfront(
                 velocity, dict_velocity[i].key, dict_velocity[i].value);
     }
 
     Listnode* angle = list_createnode(dict_angle[0].key, dict_angle[0].value);
-    for (int i = 0; i < sizeof(dict_angle) / sizeof(dict_angle[0]); i++) {
+    for (int i = 1; i < sizeof(dict_angle) / sizeof(dict_angle[0]); i++) {
         angle = list_pushfront(angle, dict_angle[i].key, dict_angle[i].value);
     }
 
     Listnode* frequency
             = list_createnode(dict_frequency[0].key, dict_frequency[0].value);
-    for (int i = 0; i < sizeof(dict_frequency) / sizeof(dict_frequency[0]);
+    for (int i = 1; i < sizeof(dict_frequency) / sizeof(dict_frequency[0]);
          i++) {
         frequency = list_pushfront(
                 frequency, dict_frequency[i].key, dict_frequency[i].value);
@@ -218,8 +219,52 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
                velocity,
                angle,
                frequency};
-    
-    printf("%ld\n", sizeof(tab));
 
-    return -1;
+    Listnode* cur;
+    int flag = FALSE;
+
+    double from_coefficient = 0;
+    double to_coefficient = 0;
+
+    for (int i = 0; i < sizeof(tab) / sizeof(tab[0]); i++) {
+        cur = tab[i];
+
+        for (Listnode* lst = cur; lst != NULL; lst = lst->next) {
+            char* s1 = lst->key;
+            char* s2 = lst->key;
+
+            if (strcmp(s1, from_unit_measure) == 0)
+                from_coefficient = lst->value;
+
+            if (strcmp(s2, to_unit_measure) == 0)
+                to_coefficient = lst->value;
+
+        }
+        if (from_coefficient && to_coefficient) {
+            flag = TRUE;
+            break;
+        }
+    }
+
+    if (flag) {
+        for (Listnode* node = cur; node != NULL; node = node->next) {
+            printf("%s->%lf\n", node->key, node->value);
+        }
+
+        inp_value = inp_value * from_coefficient / to_coefficient;
+        printf("%lf %lf\n", from_coefficient, to_coefficient);
+        return inp_value;
+    } else {
+        if (from_coefficient && to_coefficient) {
+            printf("Cannot be converted from '%s' to '%s'\n",
+                   from_unit_measure,
+                   to_unit_measure);
+        } else {
+            if (!from_coefficient)
+                printf("Unknown unit of measure '%s'\n", from_unit_measure);
+            if (!to_coefficient)
+                printf("Unknown unit of measure '%s'\n", to_unit_measure);
+        }
+        return NAN;
+    }
 }
