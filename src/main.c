@@ -19,7 +19,9 @@ int main()
         double unit = str_to_double(in_name);
         char* from = str_in_name(in_name);
         char* to = str_out_name(out_name);
-
+           
+        
+        printf("%lf\n", convert(from, unit, to));
         unit = get_result(unit, from, to);
         printf("%lf\n", unit);
     }

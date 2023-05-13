@@ -6,4 +6,4 @@ char* str_out_name(char* arr);
 
 int error_check_inname(char* arr);
 
-int convert(char* from_unit_measure, double inp_value, char* to_unit_measure);
+double convert(char* from_unit_measure, double inp_value, char* to_unit_measure);
