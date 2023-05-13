@@ -108,15 +108,6 @@ int error_check_inname(char* arr)
             space_end = start;
         }
     }
-    // for (int z = (space_end + 1); z < (ending_symbol - 1); z++) {
-    //     arr[z] = tolower(arr[z]);
-    //     if (arr[z] >= 97 && arr[z] <= 122) {
-    //         continue;
-    //     } else {
-    //         printf("invalid string input\n");
-    //         return 0;
-    //     }
-    // }
     int count = 0;
     for (int j = 0; j < space_end; j++) {
         if (arr[j] == '.') {
