@@ -1,3 +1,4 @@
+#pragma once
 double str_to_double(char* arr);
 
 char* str_in_name(char* arr);
