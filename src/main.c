@@ -23,6 +23,8 @@ int main()
 
             unit = get_result(unit, from, to);
             printf("%lf\n", unit);
+            free(from);
+            free(to);
         }
     }
 }
