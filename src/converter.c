@@ -47,7 +47,7 @@ void list_delete(Listnode* list)
     }
 }
 
-int convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
+double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
 {
     Dictionary dict_length[]
             = {{"meters", 1.},
@@ -219,5 +219,5 @@ int convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
                angle,
                frequency};
     
-    
+
 }
