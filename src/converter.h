@@ -2,6 +2,11 @@ typedef struct Dict {
     char* key;
     double value;
 
-    struct Dict *next;
 } Dictionary;
 
+typedef struct list {
+    char* key;
+    double value;
+
+    struct list *next;
+} Listnode;
