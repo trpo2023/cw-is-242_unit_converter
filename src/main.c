@@ -21,7 +21,7 @@ int main()
             char* from = str_in_name(in_name);
             char* to = str_out_name(out_name);
 
-            unit = get_result(unit, from, to);
+            unit = convert(from, unit, to);
             printf("%lf\n", unit);
             free(from);
             free(to);
