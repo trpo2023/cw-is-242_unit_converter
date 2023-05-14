@@ -238,7 +238,6 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
 
             if (strcmp(s2, to_unit_measure) == 0)
                 to_coefficient = lst->value;
-
         }
         if (from_coefficient && to_coefficient) {
             flag = TRUE;
