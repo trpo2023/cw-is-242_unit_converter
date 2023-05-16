@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "constants.h"
 #include "converter.h"
 #include "parser.h"
 

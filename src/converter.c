@@ -5,7 +5,6 @@
 #include <math.h>
 #include <string.h>
 
-#include "constants.h"
 #include "converter.h"
 
 #define TRUE 1
