@@ -7,10 +7,19 @@
 #include "converter.h"
 #include "parser.h"
 
-int main()
+int main(int argc, char *argv[])
 {
     char in_name[100];
     char out_name[100];
+    if (argc == 2)
+    {
+        const char *help = argv[1];
+        if ((strcmp(help,"-h") == 0) || (strcmp(help,"-help") == 0))
+        {
+            pr_help();
+        }
+    }
+    printf("Enter the number and unit of measurement as shown in the example\n./unit\nyou have:<number> space <string>\nyou want: <string>\n\n");
     printf("You have: ");
     fgets(in_name, 100, stdin);
     printf("You want: ");
