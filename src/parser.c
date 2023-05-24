@@ -63,7 +63,8 @@ char* str_in_name(char* arr)
     }
     for (int z = (space_end + 1); z < (length - 1); z++) {
         arr[z] = tolower(arr[z]);
-        if (arr[z] >= 97 && arr[z] <= 122) {
+        if ((arr[z] >= 97 && arr[z] <= 122) || (arr[z] == '/')
+            || (arr[z] == '^') || (arr[z] == '3') || (arr[z] == '2')) {
             str_in[count] = arr[z];
             count++;
         }
@@ -77,7 +78,8 @@ char* str_out_name(char* arr)
     char* str_out = malloc(sizeof(char) * 100);
     for (int i = 0; i < strlen(arr); i++) {
         arr[i] = tolower(arr[i]);
-        if (arr[i] >= 97 && arr[i] <= 122) {
+        if ((arr[i] >= 97 && arr[i] <= 122) || (arr[i] == '/')
+            || (arr[i] == '^') || (arr[i] == '3') || (arr[i] == '2')) {
             str_out[count] = arr[i];
             count++;
         }
@@ -132,7 +134,8 @@ int error_check_inname(char* arr)
     }
     for (int z = (space_end + 1); z < (ending_symbol - 1); z++) {
         arr[z] = tolower(arr[z]);
-        if (arr[z] >= 97 && arr[z] <= 122) {
+        if ((arr[z] >= 97 && arr[z] <= 122) || (arr[z] == '/')
+            || (arr[z] == '^') || (arr[z] == '3') || (arr[z] == '2')) {
             continue;
         } else {
             printf("invalid string input\n");
@@ -141,11 +144,14 @@ int error_check_inname(char* arr)
     }
     return 1;
 }
+
 int error_check_outname(char* arr)
 {
     for (int i = 0; i < (strlen(arr) - 1); i++) {
         arr[i] = tolower(arr[i]);
-        if (arr[i] >= 'a' && arr[i] <= 'z') {
+        if ((arr[i] >= 97 && arr[i] <= 122) || (arr[i] == '/')
+            || (arr[i] == '^') || (arr[i] == '3') || (arr[i] == '2')
+            || (arr[i] == ' ')) {
             continue;
         } else {
             printf("invalid string output\n");
