@@ -32,16 +32,19 @@ double str_to_double(char* arr)
     }
     int count = 0;
     for (int j = start_num_index; j < space_start; j++) {
-        if ((arr[j] >= '0' && arr[j] <= '9') || arr[j] == '.') {
+        if ((arr[j] >= '0' && arr[j] <= '9') || arr[j] == '.' || arr[j] == 'e'
+            || arr[j] == 'E') {
             doub_char[count] = arr[j];
             count++;
         }
     }
-    if ((doub_char[0] < '0' && doub_char[0] > '9') || (doub_char[0] != '.')
-        || (doub_char[0] != 'e') || (doub_char[0] != 'E'))
+    if ((doub_char[0] >= '0' && doub_char[0] <= '9') || (doub_char[0] == '.')
+        || (doub_char[0] == 'e') || (doub_char[0] == 'E')) {
+        doub_num = atof(doub_char);
+        return doub_num;
+    } else {
         return 1;
-    doub_num = atof(doub_char);
-    return doub_num;
+    }
 }
 
 char* str_in_name(char* arr)
@@ -128,7 +131,8 @@ int error_check_inname(char* arr)
     }
 
     for (int j = 0; j < space_start; j++) {
-        if ((arr[j] >= '0' && arr[j] <= '9') || arr[j] == '.') {
+        if ((arr[j] >= '0' && arr[j] <= '9') || arr[j] == '.' || arr[j] == 'e'
+            || arr[j] == 'E') {
             continue;
         } else {
             printf("invalid number input\n");
