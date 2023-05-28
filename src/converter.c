@@ -5,7 +5,6 @@
 #include <math.h>
 #include <string.h>
 
-#include "constants.h"
 #include "converter.h"
 
 #define TRUE 1
@@ -246,12 +245,7 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
     }
 
     if (flag) {
-        for (Listnode* node = cur; node != NULL; node = node->next) {
-            printf("%s->%lf\n", node->key, node->value);
-        }
-
         inp_value = inp_value * from_coefficient / to_coefficient;
-        printf("%lf %lf\n", from_coefficient, to_coefficient);
         return inp_value;
     } else {
         if (from_coefficient && to_coefficient) {
