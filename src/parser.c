@@ -37,7 +37,8 @@ double str_to_double(char* arr)
             count++;
         }
     }
-    if (doub_char[0] < '0' && doub_char[0] > '9' || doub_char[0] != '.' || doub_char[0] != 'e' || doub_char != 'E')
+    if (doub_char[0] < '0' && doub_char[0] > '9' || doub_char[0] != '.'
+        || doub_char[0] != 'e' || doub_char != 'E')
         return 1;
     doub_num = atof(doub_char);
     return doub_num;
