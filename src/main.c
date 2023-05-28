@@ -9,7 +9,7 @@
 
 int main(int argc, char* argv[])
 {
-    //system("clear");
+    // system("clear");
     if (argc == 2) {
         const char* help = argv[1];
         if ((strcmp(help, "-h") == 0) || (strcmp(help, "-help") == 0)) {
@@ -20,9 +20,8 @@ int main(int argc, char* argv[])
            "example\nYou have: <number> space <string>\nYou want: "
            "<string>\n\n");
     while (1) {
-        
-        char *in_name = malloc(100 * sizeof(char));
-        char *out_name = malloc(100 * sizeof(char));
+        char* in_name = malloc(100 * sizeof(char));
+        char* out_name = malloc(100 * sizeof(char));
         printf("You have: ");
         fgets(in_name, 100, stdin);
         printf("You want: ");
@@ -40,11 +39,10 @@ int main(int argc, char* argv[])
             }
         }
         printf("would you like to continue?[y/n]\n");
-        char temp[2]; 
+        char temp[2];
         fgets(temp, 2, stdin);
         fflush(stdin);
-        if (*temp != 'y')
-        {
+        if (*temp != 'y') {
             free(in_name);
             free(out_name);
             break;
