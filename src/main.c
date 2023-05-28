@@ -9,6 +9,7 @@
 
 int main(int argc, char* argv[])
 {
+    //system("clear");
     if (argc == 2) {
         const char* help = argv[1];
         if ((strcmp(help, "-h") == 0) || (strcmp(help, "-help") == 0)) {
@@ -16,11 +17,12 @@ int main(int argc, char* argv[])
         }
     }
     printf("Enter the number and unit of measurement as shown in the "
-           "example\n./unit\nYou have:<number> space <string>\nYou want: "
+           "example\nYou have: <number> space <string>\nYou want: "
            "<string>\n\n");
     while (1) {
-        char in_name[100];
-        char out_name[100];
+        
+        char *in_name = malloc(100 * sizeof(char));
+        char *out_name = malloc(100 * sizeof(char));
         printf("You have: ");
         fgets(in_name, 100, stdin);
         printf("You want: ");
@@ -37,9 +39,19 @@ int main(int argc, char* argv[])
                 free(to);
             }
         }
-        printf("would you like to continue?\nenter: y or n\n");
-        char temp = getchar();
-        if (temp != 'y')
+        printf("would you like to continue?[y/n]\n");
+        char temp[2]; 
+        fgets(temp, 2, stdin);
+        fflush(stdin);
+        if (*temp != 'y')
+        {
+            free(in_name);
+            free(out_name);
             break;
+        }
+        *temp = getchar();
+        free(in_name);
+        free(out_name);
+        system("clear");
     }
 }
