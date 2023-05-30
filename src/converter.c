@@ -77,7 +77,7 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
                {"nanoseconds", 0.000000001}};
 
     Dictionary dict_temperature[]
-            = {{"kelvin", 1.}, {"celsius", -273.15}, {"fahr", -273.15}};
+            = {{"celsius", 1}, {"kelvin", -273.15}, {"fahrenheit", -273.15}};
 
     Dictionary dict_pressure[]
             = {{"pascal", 1.},
@@ -245,6 +245,29 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
     }
 
     if (flag) {
+        if (cur == temperature) {
+            if (!strcmp(from_unit_measure, to_unit_measure))
+                return inp_value;
+            if (!strcmp("celsius", from_unit_measure)
+                && !strcmp("kelvin", to_unit_measure))
+                return inp_value + 273.15;
+            if (!strcmp("kelvin", from_unit_measure)
+                && !strcmp("celsius", to_unit_measure))
+                return inp_value - 273.15;
+            if (!strcmp("celsius", from_unit_measure)
+                && !strcmp("fahrenheit", to_unit_measure))
+                return (inp_value * 9.0 / 5.0) + 32;
+            if (!strcmp("fahrenheit", from_unit_measure)
+                && !strcmp("celsius", to_unit_measure))
+                return (inp_value - 32) * 5.0 / 9.0;
+            if (!strcmp("fahrenheit", from_unit_measure)
+                && !strcmp("kelvin", to_unit_measure))
+                return (inp_value - 32) * 5.0 / 9.0 + 273.15;
+            if (!strcmp("kelvin", from_unit_measure)
+                && !strcmp("fahrenheit", to_unit_measure))
+                return (inp_value - 273.15) * 9.0 / 5.0 + 32;
+        }
+
         inp_value = inp_value * from_coefficient / to_coefficient;
         return inp_value;
     } else {
