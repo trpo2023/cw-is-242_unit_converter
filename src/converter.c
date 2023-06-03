@@ -430,6 +430,7 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
 
     double from_coefficient = 0;
     double to_coefficient = 0;
+    int cnt1 = 0, cnt2 = 0;
 
     for (int i = 0; i < sizeof(tab) / sizeof(tab[0]); i++) {
         cur = tab[i];
@@ -438,15 +439,21 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
             char* s1 = lst->key;
             char* s2 = lst->key;
 
-            if (strcmp(s1, from_unit_measure) == 0)
+            if (strcmp(s1, from_unit_measure) == 0) {
                 from_coefficient = lst->value;
-
-            if (strcmp(s2, to_unit_measure) == 0)
+                cnt1++;
+            }
+            if (strcmp(s2, to_unit_measure) == 0) {
                 to_coefficient = lst->value;
+                cnt2++;
+            }
         }
         if (from_coefficient && to_coefficient) {
             flag = TRUE;
             break;
+        } else {
+            from_coefficient = 0;
+            to_coefficient = 0;
         }
     }
 
@@ -458,14 +465,14 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
         inp_value = inp_value * from_coefficient / to_coefficient;
         return inp_value;
     } else {
-        if (from_coefficient && to_coefficient) {
+        if (cnt1 && cnt2) {
             printf("Cannot be converted from '%s' to '%s'\n",
                    from_unit_measure,
                    to_unit_measure);
         } else {
-            if (!from_coefficient)
+            if (!cnt1)
                 printf("Unknown unit of measure '%s'\n", from_unit_measure);
-            if (!to_coefficient)
+            if (!cnt2)
                 printf("Unknown unit of measure '%s'\n", to_unit_measure);
         }
         return NAN;
