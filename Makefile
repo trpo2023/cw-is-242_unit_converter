@@ -55,5 +55,7 @@ clean:
 	rm -rf $(LibTarget)
 	rm -rf $(ObjDir)/test/*.o $(ObjDir)/test/*.d
 	rm -rf $(BinDir)/$(Test_name)
+	rm -rf $(ObjDir)/tests/*.d
+	rm -rf $(ObjDir)/tests/*.o
 
 -include $(ObjDir)/%.d
