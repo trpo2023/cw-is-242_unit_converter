@@ -1,0 +1,11 @@
+unit
+unit-test
+obj/*.o
+obj/*.d
+*~
+obj/lib/*.a
+obj/tests/*.d
+obj/tests/*.o
+*.txt
+.vscode
+.idea
