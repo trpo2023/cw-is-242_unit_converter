@@ -41,7 +41,7 @@ void list_delete(Listnode* list)
 {
     Listnode* prev;
 
-    for (prev = list; prev != NULL; prev = list) {
+    for (prev = list; list != NULL; prev = list) {
         list = list->next;
         free(prev);
     }
@@ -462,6 +462,11 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
             return temp_convert(from_unit_measure, inp_value, to_unit_measure);
         }
 
+        for (int i = 0; i < sizeof(tab) / sizeof(tab[0]); i++) {
+            cur = tab[i];
+            list_delete(cur);
+        }
+
         inp_value = inp_value * from_coefficient / to_coefficient;
         return inp_value;
     } else {
@@ -474,6 +479,11 @@ double convert(char* from_unit_measure, double inp_value, char* to_unit_measure)
                 printf("Unknown unit of measure '%s'\n", from_unit_measure);
             if (!cnt2)
                 printf("Unknown unit of measure '%s'\n", to_unit_measure);
+        }
+
+        for (int i = 0; i < sizeof(tab) / sizeof(tab[0]); i++) {
+            cur = tab[i];
+            list_delete(cur);
         }
         return NAN;
     }
