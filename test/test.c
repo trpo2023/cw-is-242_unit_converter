@@ -24,6 +24,7 @@ CTEST(INPUT_CHECK, STR_IN_NAME)
     int real = strcmp(temp,temp2);
     int expec = 0;
     ASSERT_EQUAL(expec, real);
+    free(temp);
 }
 
 CTEST(INPUT_CHECK, STR_OUT_NAME)
@@ -33,6 +34,7 @@ CTEST(INPUT_CHECK, STR_OUT_NAME)
     int real = strcmp(temp,arr);
     int expec = 0;
     ASSERT_EQUAL(expec, real);
+    free(temp);
 }
 
 CTEST(ERORR_CHECK, STR_IN_NAME)
