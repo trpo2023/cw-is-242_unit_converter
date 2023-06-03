@@ -7,7 +7,7 @@ ObjDir = obj
 Test_name = unit-test	
 
 
-LibTarget = $(ObjDir)/lib/libgeometry.a
+LibTarget = $(ObjDir)/lib/libconverter.a
 Target = $(BinDir)/unit
 LibTestDir = tests
 TestTarget = $(BinDir)/$(Test_name)
