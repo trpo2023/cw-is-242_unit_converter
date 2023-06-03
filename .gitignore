@@ -3,7 +3,7 @@ unit-test
 obj/*.o
 obj/*.d
 *~
-obj/lib/libgeometry.a
+obj/lib/*.a
 obj/tests/*.d
 obj/tests/*.o
 *.txt
