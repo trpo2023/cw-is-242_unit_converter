@@ -11,9 +11,9 @@
 CTEST(INPUT_CHECK, DOUBLE_NUMBER)
 {
     char arr[] = "23 mms";
-    int expec = 23;
-    int real = str_to_double(arr);
-    ASSERT_EQUAL(expec, real);
+    double expec = 23;
+    double real = str_to_double(arr);
+    ASSERT_DBL_NEAR(expec, real);
 }
 
 CTEST(INPUT_CHECK, STR_IN_NAME)
@@ -71,4 +71,24 @@ CTEST(ERORR_CHECK, STR_OUT_NAME)
     int real = error_check_outname(arr);
     int expec = 0;
     ASSERT_EQUAL(expec, real);
+}
+
+CTEST(INPUT_CHECK, CONVERTER)
+{
+    char from[] = "kg";
+    char to[] = "lb";
+    double unit = 1;
+    double real = 2.20462;
+    double expec = convert(from, unit, to);
+    ASSERT_DBL_NEAR_TOL(expec, real, 1e-5);
+}
+
+CTEST(INPUT_CHECK, CONVERTER_TEMP)
+{
+    char from[] = "fahrenheit";
+    char to[] = "kelvin";
+    double unit = 100;
+    double real = 310.927778;
+    double expec = temp_convert(from, unit, to);
+    ASSERT_DBL_NEAR_TOL(expec, real, 1e-5);
 }
